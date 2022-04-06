@@ -43,8 +43,8 @@ class CfdConsoleProcess:
         self.stdoutHook = stdout_hook
         self.stderrHook = stderr_hook
         self.process.finished.connect(self.finished)
-        self.process.readyReadStandardOutput.connect(self.readStdout)
-        self.process.readyReadStandardError.connect(self.readStderr)
+        self.process.readyReadStandardOutput.connect(self.readStdOut)
+        self.process.readyReadStandardError.connect(self.readStdErr)
         self.print_next_error_lines = 0
         self.print_next_error_file = False
 
@@ -86,7 +86,7 @@ class CfdConsoleProcess:
         if self.finishedHook:
             self.finishedHook(exit_code)
 
-    def readStdout(self):
+    def readStdOut(self):
         # Ensure only complete lines are passed on
         text = ""
         while self.process.canReadLine():
@@ -100,7 +100,7 @@ class CfdConsoleProcess:
             if FreeCAD.GuiUp:
                 FreeCAD.Gui.updateGui()
 
-    def readStderr(self):
+    def readStdErr(self):
         # Ensure only complete lines are passed on
         # Print any error output to console
         self.process.setReadChannel(QProcess.StandardError)
@@ -128,12 +128,12 @@ class CfdConsoleProcess:
         while True:
             ret = self.process.waitForFinished(1000)
             if self.process.error() != self.process.Timedout:
-                self.readStdout()
-                self.readStderr()
+                self.readStdOut()
+                self.readStdErr()
                 return ret
             if self.process.state() == self.process.NotRunning:
-                self.readStdout()
-                self.readStderr()
+                self.readStdOut()
+                self.readStdErr()
                 return True
 
     def exitCode(self):

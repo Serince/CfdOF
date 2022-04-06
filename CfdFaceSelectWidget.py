@@ -98,8 +98,8 @@ class CfdFaceSelectWidget:
         self.form.rb_standard.setVisible(not exclusive_sel)
         self.form.rb_solid.setVisible(not exclusive_sel)
         self.form.faceSelectPushButton.setVisible(allow_obj_sel)
-        self.form.rb_standard.toggled.connect(self.choose_selection_mode_standard)
-        self.form.rb_solid.toggled.connect(self.choose_selection_mode_solid)
+        self.form.rb_standard.toggled.connect(self.chooseSelectionModeStandard)
+        self.form.rb_solid.toggled.connect(self.chooseSelectionModeSolid)
 
         self.form.listReferences.currentRowChanged.connect(self.setReferenceListSelection)
         self.form.buttonAddFace.clicked.connect(self.buttonAddFaceClicked)
@@ -212,11 +212,11 @@ class CfdFaceSelectWidget:
         self.rebuildReferenceList()
         self.scheduleRecompute()
 
-    def choose_selection_mode_standard(self, state):
+    def chooseSelectionModeStandard(self, state):
         self.selection_mode_solid = not state
         self.updateSelectionbuttonUI()
 
-    def choose_selection_mode_solid(self, state):
+    def chooseSelectionModeSolid(self, state):
         self.selection_mode_solid = state
         self.updateSelectionbuttonUI()
 

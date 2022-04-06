@@ -92,7 +92,7 @@ class CfdRunnableFoam(CfdRunnable):
         self.ReThetatResiduals = []
         self.niter = 0
 
-    def get_solver_cmd(self, case_dir):
+    def getSolverCmd(self, case_dir):
         self.initResiduals()
 
         self.residualPlot = ResidualPlot()
@@ -105,7 +105,7 @@ class CfdRunnableFoam(CfdRunnable):
     def getRunEnvironment(self):
         return CfdTools.getRunEnvironment()
 
-    def process_output(self, text):
+    def processOutput(self, text):
         log_lines = text.split('\n')
         for line in log_lines:
             # print line,

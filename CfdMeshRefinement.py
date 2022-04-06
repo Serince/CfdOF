@@ -56,7 +56,7 @@ def makeCfdMeshRefinement(base_mesh, name="MeshRefinement"):
 class _CommandMeshRegion:
 
     def GetResources(self):
-        icon_path = os.path.join(CfdTools.get_module_path(), "Gui", "Resources", "icons", "meshRegion.png")
+        icon_path = os.path.join(CfdTools.getModulePath(), "Gui", "Resources", "icons", "meshRegion.png")
         return {'Pixmap': icon_path,
                 'MenuText': QtCore.QT_TRANSLATE_NOOP("Cfd_MeshRegion", "Mesh refinement"),
                 'Accel': "M, R",
@@ -172,7 +172,7 @@ class _ViewProviderCfdMeshRefinement:
         vobj.Proxy = self
 
     def getIcon(self):
-        icon_path = os.path.join(CfdTools.get_module_path(), "Gui", "Resources", "icons", "meshRegion.png")
+        icon_path = os.path.join(CfdTools.getModulePath(), "Gui", "Resources", "icons", "meshRegion.png")
         return icon_path
 
     def attach(self, vobj):

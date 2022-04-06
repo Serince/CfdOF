@@ -62,7 +62,7 @@ class CfdCaseWriterFoam:
         self.case_folder = os.path.join(self.working_dir, self.solver_obj.InputCaseName)
         self.case_folder = os.path.expanduser(os.path.abspath(self.case_folder))
         self.mesh_file_name = os.path.join(self.case_folder, self.solver_obj.InputCaseName, u".unv")
-        self.template_path = os.path.join(CfdTools.get_module_path(), "data", "defaults")
+        self.template_path = os.path.join(CfdTools.getModulePath(), "data", "defaults")
 
         # Collect settings into single dictionary
         if not self.mesh_obj:
@@ -264,7 +264,7 @@ class CfdCaseWriterFoam:
                     selected_object = self.analysis_obj.Document.getObject(face[0])
                     if hasattr(selected_object, "Shape"):
                         elt = selected_object.Shape.getElement(face[1])
-                        if elt.ShapeType == 'Face' and CfdTools.is_planar(elt):
+                        if elt.ShapeType == 'Face' and CfdTools.isPlanar(elt):
                             n = elt.normalAt(0.5, 0.5)
                             if bc['ReverseNormal']:
                                n = [-ni for ni in n]

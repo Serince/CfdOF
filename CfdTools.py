@@ -207,7 +207,7 @@ def getCfdBoundaryGroup(analysis_object):
     return group
 
 
-def is_planar(shape):
+def isPlanar(shape):
     """
     Return whether the shape is a planar face
     """
@@ -246,7 +246,7 @@ def getResult(analysis_object):
     return None
 
 
-def get_module_path():
+def getModulePath():
     """
     Returns the current Cfd module path.
     Determines where this file is running from, so works regardless of whether
@@ -1502,7 +1502,7 @@ def importMaterials():
 
     # Store the defaults inside the module directory rather than the resource dir
     # system_mat_dir = FreeCAD.getResourceDir() + "/Mod/Material/FluidMaterialProperties"
-    system_mat_dir = os.path.join(get_module_path(), "data/CfdFluidMaterialProperties")
+    system_mat_dir = os.path.join(getModulePath(), "data/CfdFluidMaterialProperties")
     material_name_path_list = material_name_path_list + addMatDir(system_mat_dir, materials)
     return materials, material_name_path_list
 

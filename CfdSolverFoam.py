@@ -45,7 +45,7 @@ def makeCfdSolverFoam(name="CfdSolver"):
 
 class _CommandCfdSolverFoam:
     def GetResources(self):
-        icon_path = os.path.join(CfdTools.get_module_path(), "Gui", "Resources", "icons", "solver.png")
+        icon_path = os.path.join(CfdTools.getModulePath(), "Gui", "Resources", "icons", "solver.png")
         return {'Pixmap': icon_path,
                 'MenuText': QtCore.QT_TRANSLATE_NOOP("Cfd_SolverControl", "Solver job control"),
                 'Accel': "S, C",
@@ -122,7 +122,7 @@ class _ViewProviderCfdSolverFoam:
 
     def getIcon(self):
         # """after load from FCStd file, self.icon does not exist, return constant path instead"""
-        icon_path = os.path.join(CfdTools.get_module_path(), "Gui", "Resources", "icons", "solver.png")
+        icon_path = os.path.join(CfdTools.getModulePath(), "Gui", "Resources", "icons", "solver.png")
         return icon_path
 
     def attach(self, vobj):

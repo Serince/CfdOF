@@ -29,7 +29,7 @@ import signal
 import subprocess
 
 
-def processStdin():
+def processStdIn():
     with sys.stdin:
         for line in iter(sys.stdin.readline, ''):
             if line.rstrip() == "terminate":
@@ -37,7 +37,7 @@ def processStdin():
                 process.send_signal(signal.CTRL_BREAK_EVENT)
 
 
-def processStdout():
+def processStdOut():
     with process.stdout:
         try:
             for output in iter(process.stdout.readline, ''):
@@ -47,7 +47,8 @@ def processStdout():
             # Avoid falling over is some weird character is emitted
             pass
 
-def processStderr():
+
+def processStdErr():
     with process.stderr:
         try:
             for output in iter(process.stderr.readline, ''):
@@ -68,13 +69,13 @@ process = subprocess.Popen(argv[1:],
                            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
                            universal_newlines=True)
 # Start threads to await input/output.
-t1 = threading.Thread(target=processStdin)
+t1 = threading.Thread(target=processStdIn)
 t1.daemon = True
 t1.start()
-t2 = threading.Thread(target=processStdout)
+t2 = threading.Thread(target=processStdOut)
 t2.daemon = True
 t2.start()
-t3 = threading.Thread(target=processStderr)
+t3 = threading.Thread(target=processStdErr)
 t3.daemon = True
 t3.start()
 process.wait()

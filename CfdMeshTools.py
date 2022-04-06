@@ -686,7 +686,7 @@ class CfdMeshTools:
                         self.gmsh_settings['BoundaryFaceMap'][patch_name] = ', '.join(str(fi+1) for fi in patch_faces)
 
         # Perform initialisation here rather than __init__ in case of path changes
-        self.template_path = os.path.join(CfdTools.get_module_path(), "data", "defaultsMesh")
+        self.template_path = os.path.join(CfdTools.getModulePath(), "data", "defaultsMesh")
 
         mesh_region_present = False
         if self.mesh_obj.MeshUtility == "cfMesh" and len(self.cf_settings['MeshRegions']) > 0 or \

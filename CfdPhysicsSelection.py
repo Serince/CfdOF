@@ -48,7 +48,7 @@ class _CommandCfdPhysicsSelection:
     """ CFD physics selection command definition """
 
     def GetResources(self):
-        icon_path = os.path.join(CfdTools.get_module_path(), "Gui", "Resources", "icons", "physics.png")
+        icon_path = os.path.join(CfdTools.getModulePath(), "Gui", "Resources", "icons", "physics.png")
         return {'Pixmap': icon_path,
                 'MenuText': QtCore.QT_TRANSLATE_NOOP("Cfd_PhysicsModel", "Select models"),
                 'Accel': "",
@@ -102,7 +102,7 @@ class _CfdPhysicsModel:
         #  'App::PropertyMaterialList', 'App::PropertyPath', 'App::PropertyFile', 'App::PropertyFileIncluded',
         #  'App::PropertyPythonObject', 'App::PropertyExpressionEngine', 'Part::PropertyPartShape',
         #  'Part::PropertyGeometryList', 'Part::PropertyShapeHistory', 'Part::PropertyFilletEdges',
-        #  'Fem::PropertyFemMesh', 'Fem::PropertyPostDataObject']
+        #  'Fem::PropertyFemMesh', 'Fem::PropertyPostDataObject'] #TODO @Oliver - is there a reason these are here? Are they a reference? Should we move to another file if they are being kept as a reference (perhaps a readme / contrib document?
 
         if addObjectProperty(obj, "Time", ['Steady', 'Transient'], "App::PropertyEnumeration", "Physics modelling",
                              "Resolve time dependence"):
@@ -145,7 +145,7 @@ class _ViewProviderPhysicsSelection:
         vobj.Proxy = self
 
     def getIcon(self):
-        icon_path = os.path.join(CfdTools.get_module_path(), "Gui", "Resources", "icons", "physics.png")
+        icon_path = os.path.join(CfdTools.getModulePath(), "Gui", "Resources", "icons", "physics.png")
         return icon_path
 
     def attach(self, vobj):

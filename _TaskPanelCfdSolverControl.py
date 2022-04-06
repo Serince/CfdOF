@@ -210,7 +210,7 @@ class _TaskPanelCfdSolverControl:
         self.form.terminateSolver.setEnabled(False)
 
     def gotOutputLines(self, lines):
-        self.solver_runner.process_output(lines)
+        self.solver_runner.processOutput(lines)
 
     def gotErrorLines(self, lines):
         print_err = self.solver_object.Proxy.solver_process.processErrorOutput(lines)

@@ -229,7 +229,7 @@ class _TaskPanelCfdMesh:
         self.consoleMessage("Preparing meshing ...")
         try:
             QApplication.setOverrideCursor(Qt.WaitCursor)
-            setQuantity(self.form.if_max, str(cart_mesh.getClmax()))
+            setQuantity(self.form.if_max, str(cart_mesh.getClMax()))
             print('Part to mesh:\n  Name: '
                   + cart_mesh.part_obj.Name + ', Label: '
                   + cart_mesh.part_obj.Label + ', ShapeType: '
