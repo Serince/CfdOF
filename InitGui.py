@@ -42,21 +42,14 @@ class CfdOFWorkbench(Workbench):
         FreeCADGui.addPreferencePage(CfdPreferencePage, "CfdOF")
 
     def Initialize(self):
-        # must import QtCore in this function,
-        # not at the beginning of this file for translation support
+        # must import QtCore in this function, not at the beginning of this file for translation support
         from PySide import QtCore
 
         from CfdAnalysis import _CommandCfdAnalysis
         from CfdMesh import _CommandCfdMeshFromShape
         from CfdMeshRefinement import _CommandMeshRegion
-        from CfdPhysicsSelection import _CommandCfdPhysicsSelection
-        from CfdFluidMaterial import _CommandCfdFluidMaterial
-        from CfdSolverFoam import _CommandCfdSolverFoam
-        from CfdInitialiseFlowField import _CommandCfdInitialiseInternalFlowField
-        from CfdFluidBoundary import _CommandCfdFluidBoundary
-        from CfdZone import _CommandCfdPorousZone
-        from CfdZone import _CommandCfdInitialisationZone
 
+        # TODO @Oliver - a number of the other Commands are imported in their .py files, is there any reason we do 1/2 here and 1/2 in the .py files?
         FreeCADGui.addCommand('Cfd_Analysis', _CommandCfdAnalysis())
         FreeCADGui.addCommand('Cfd_MeshFromShape', _CommandCfdMeshFromShape())
         FreeCADGui.addCommand('Cfd_MeshRegion', _CommandMeshRegion())
