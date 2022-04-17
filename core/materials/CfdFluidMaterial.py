@@ -146,7 +146,7 @@ class _ViewProviderCfdFluidMaterial:
         if not physics_model:
             CfdTools.cfdErrorBox("Analysis object must have a physics object")
             return False
-        import _TaskPanelCfdFluidProperties
+        import core.materials._TaskPanelCfdFluidProperties as _TaskPanelCfdFluidProperties
         taskd = _TaskPanelCfdFluidProperties.TaskPanelCfdFluidProperties(self.Object, physics_model)
         taskd.obj = vobj.Object
         FreeCADGui.Control.showDialog(taskd)
