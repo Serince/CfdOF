@@ -50,12 +50,12 @@ class CfdOFWorkbench(Workbench):
         from CfdMesh import _CommandCfdMeshFromShape
         from CfdMeshRefinement import _CommandMeshRegion
         from CfdPhysicsSelection import _CommandCfdPhysicsSelection
-        from CfdFluidMaterial import _CommandCfdFluidMaterial
         from CfdSolverFoam import _CommandCfdSolverFoam
         from CfdInitialiseFlowField import _CommandCfdInitialiseInternalFlowField
         from CfdFluidBoundary import _CommandCfdFluidBoundary
         from CfdZone import _CommandCfdPorousZone
         from CfdZone import _CommandCfdInitialisationZone
+        from core.materials.CfdFluidMaterial import _CommandCfdFluidMaterial
         from core.mesh.dynamic.CfdDynamicMeshRefinement import _CommandDynamicMesh
         from core.functionobjects.reporting.CfdReportingFunctions import _CommandCfdReportingFunctions
         from core.functionobjects.probes.CfdReportingProbes import CommandCfdReportingProbes

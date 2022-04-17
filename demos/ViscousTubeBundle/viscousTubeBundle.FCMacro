@@ -10,7 +10,7 @@ analysis = CfdAnalysis.makeCfdAnalysis('CfdAnalysis')
 CfdTools.setActiveAnalysis(analysis)
 import CfdPhysicsSelection
 analysis.addObject(CfdPhysicsSelection.makeCfdPhysicsSelection())
-import CfdFluidMaterial
+import core.materials.CfdFluidMaterial as CfdFluidMaterial
 analysis.addObject(CfdFluidMaterial.makeCfdFluidMaterial('FluidProperties'))
 import CfdInitialiseFlowField
 analysis.addObject(CfdInitialiseFlowField.makeCfdInitialFlowField())

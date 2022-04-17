@@ -35,7 +35,6 @@ if FreeCAD.GuiUp:
 
 def makeCfdFluidMaterial(name):
     obj = FreeCAD.ActiveDocument.addObject("App::MaterialObjectPython", name)
-
     _CfdMaterial(obj)  # Include default fluid properties
     if FreeCAD.GuiUp:
         _ViewProviderCfdFluidMaterial(obj.ViewObject)
@@ -60,7 +59,7 @@ class _CommandCfdFluidMaterial:
         FreeCAD.ActiveDocument.openTransaction("Set CfdFluidMaterialProperty")
         FreeCADGui.doCommand("")
         FreeCADGui.addModule("CfdTools")
-        FreeCADGui.addModule("CfdFluidMaterial")
+        FreeCADGui.addModule("core.materials.CfdFluidMaterial as CfdFluidMaterial")
         editing_existing = False
         analysis_object = CfdTools.getActiveAnalysis()
         if analysis_object is None:

@@ -83,14 +83,13 @@ class _CommandCfdAnalysis:
         FreeCADGui.doCommand("analysis = CfdAnalysis.makeCfdAnalysis('CfdAnalysis')")
         FreeCADGui.doCommand("CfdTools.setActiveAnalysis(analysis)")
 
-        ''' Objects ordered according to expected workflow '''
-
+        # Objects ordered according to expected workflow
         # Add physics object when CfdAnalysis container is created
         FreeCADGui.addModule("CfdPhysicsSelection")
         FreeCADGui.doCommand("analysis.addObject(CfdPhysicsSelection.makeCfdPhysicsSelection())")
 
         # Add fluid properties object when CfdAnalysis container is created
-        FreeCADGui.addModule("CfdFluidMaterial")
+        FreeCADGui.addModule("core.materials.CfdFluidMaterial as CfdFluidMaterial")
         FreeCADGui.doCommand("analysis.addObject(CfdFluidMaterial.makeCfdFluidMaterial('FluidProperties'))")
 
         # Add initialisation object when CfdAnalysis container is created

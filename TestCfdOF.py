@@ -32,7 +32,7 @@ import CfdAnalysis
 import CfdSolverFoam
 import CfdPhysicsSelection
 import CfdInitialiseFlowField
-import CfdFluidMaterial
+from core.materials import CfdFluidMaterial
 import CfdMesh
 import CfdFluidBoundary
 import CfdTools
@@ -43,7 +43,6 @@ import CfdRunnableFoam
 import tempfile
 import unittest
 import os
-import shutil
 
 # ***************************************************************************
 #                                                                           *

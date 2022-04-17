@@ -2,7 +2,7 @@ import FreeCAD
 import CfdAnalysis
 import CfdTools
 import CfdPhysicsSelection
-import CfdFluidMaterial
+import core.materials.CfdFluidMaterial as CfdFluidMaterial
 import CfdInitialiseFlowField
 import CfdSolverFoam
 import CfdMesh
